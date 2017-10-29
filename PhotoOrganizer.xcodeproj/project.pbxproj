@@ -11,7 +11,6 @@
 		508792431FA4EC7300CCED47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792421FA4EC7300CCED47 /* ViewController.swift */; };
 		508792451FA4EC7300CCED47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508792441FA4EC7300CCED47 /* Assets.xcassets */; };
 		508792481FA4EC7300CCED47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508792461FA4EC7300CCED47 /* Main.storyboard */; };
-		508792531FA4EC7300CCED47 /* PhotoOrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792521FA4EC7300CCED47 /* PhotoOrganizerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +31,6 @@
 		508792471FA4EC7300CCED47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		508792491FA4EC7300CCED47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5087924E1FA4EC7300CCED47 /* PhotoOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		508792521FA4EC7300CCED47 /* PhotoOrganizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOrganizerTests.swift; sourceTree = "<group>"; };
 		508792541FA4EC7300CCED47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +85,6 @@
 		508792511FA4EC7300CCED47 /* PhotoOrganizerTests */ = {
 			isa = PBXGroup;
 			children = (
-				508792521FA4EC7300CCED47 /* PhotoOrganizerTests.swift */,
 				508792541FA4EC7300CCED47 /* Info.plist */,
 			);
 			path = PhotoOrganizerTests;
@@ -147,6 +144,7 @@
 					};
 					5087924D1FA4EC7300CCED47 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5087923C1FA4EC7300CCED47;
 					};
@@ -204,7 +202,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				508792531FA4EC7300CCED47 /* PhotoOrganizerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,11 +350,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PhotoOrganizerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.codehawks.PhotoOrganizerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoOrganizer.app/Contents/MacOS/PhotoOrganizer";
 			};
@@ -368,6 +367,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PhotoOrganizerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
