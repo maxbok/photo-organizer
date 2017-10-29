@@ -11,6 +11,11 @@
 		508792431FA4EC7300CCED47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792421FA4EC7300CCED47 /* ViewController.swift */; };
 		508792451FA4EC7300CCED47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508792441FA4EC7300CCED47 /* Assets.xcassets */; };
 		508792481FA4EC7300CCED47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508792461FA4EC7300CCED47 /* Main.storyboard */; };
+		5087925E1FA4ED7900CCED47 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087925D1FA4ED7900CCED47 /* Settings.swift */; };
+		508792601FA4EF9100CCED47 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087925F1FA4EF9100CCED47 /* Event.swift */; };
+		508792641FA4F0B200CCED47 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792631FA4F0B200CCED47 /* SettingsTests.swift */; };
+		508792661FA4F57000CCED47 /* EventDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792651FA4F57000CCED47 /* EventDay.swift */; };
+		508792681FA4F59500CCED47 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792671FA4F59500CCED47 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +37,11 @@
 		508792491FA4EC7300CCED47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5087924E1FA4EC7300CCED47 /* PhotoOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		508792541FA4EC7300CCED47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5087925D1FA4ED7900CCED47 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		5087925F1FA4EF9100CCED47 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		508792631FA4F0B200CCED47 /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		508792651FA4F57000CCED47 /* EventDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDay.swift; sourceTree = "<group>"; };
+		508792671FA4F59500CCED47 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,10 @@
 			children = (
 				508792401FA4EC7300CCED47 /* AppDelegate.swift */,
 				508792421FA4EC7300CCED47 /* ViewController.swift */,
+				5087925D1FA4ED7900CCED47 /* Settings.swift */,
+				5087925F1FA4EF9100CCED47 /* Event.swift */,
+				508792651FA4F57000CCED47 /* EventDay.swift */,
+				508792671FA4F59500CCED47 /* File.swift */,
 				508792441FA4EC7300CCED47 /* Assets.xcassets */,
 				508792461FA4EC7300CCED47 /* Main.storyboard */,
 				508792491FA4EC7300CCED47 /* Info.plist */,
@@ -86,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				508792541FA4EC7300CCED47 /* Info.plist */,
+				508792631FA4F0B200CCED47 /* SettingsTests.swift */,
 			);
 			path = PhotoOrganizerTests;
 			sourceTree = "<group>";
@@ -193,7 +208,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508792601FA4EF9100CCED47 /* Event.swift in Sources */,
+				508792681FA4F59500CCED47 /* File.swift in Sources */,
+				5087925E1FA4ED7900CCED47 /* Settings.swift in Sources */,
 				508792431FA4EC7300CCED47 /* ViewController.swift in Sources */,
+				508792661FA4F57000CCED47 /* EventDay.swift in Sources */,
 				508792411FA4EC7300CCED47 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508792641FA4F0B200CCED47 /* SettingsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
