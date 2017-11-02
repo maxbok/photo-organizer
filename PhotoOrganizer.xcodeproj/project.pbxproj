@@ -17,9 +17,16 @@
 		508792661FA4F57000CCED47 /* EventDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792651FA4F57000CCED47 /* EventDay.swift */; };
 		508792681FA4F59500CCED47 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792671FA4F59500CCED47 /* File.swift */; };
 		5087926A1FA643EB00CCED47 /* DraggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792691FA643EB00CCED47 /* DraggingView.swift */; };
+		5087926D1FA6450500CCED47 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087926C1FA6450500CCED47 /* Colors.swift */; };
 		5087926F1FA64A7300CCED47 /* HintOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087926E1FA64A7300CCED47 /* HintOverlay.swift */; };
 		508792711FA935DB00CCED47 /* DraggingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792701FA935DB00CCED47 /* DraggingViewDelegate.swift */; };
 		508792731FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792721FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift */; };
+		508792751FA9C96700CCED47 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792741FA9C96700CCED47 /* FileUtils.swift */; };
+		508792771FA9D07D00CCED47 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792761FA9D07D00CCED47 /* NSError.swift */; };
+		508792791FA9D4B600CCED47 /* URL+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792781FA9D4B600CCED47 /* URL+Utils.swift */; };
+		5087927B1FA9D5D300CCED47 /* Event+Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087927A1FA9D5D300CCED47 /* Event+Generator.swift */; };
+		5087927D1FA9D7BA00CCED47 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087927C1FA9D7BA00CCED47 /* Date+Utils.swift */; };
+		5087927F1FAA30C900CCED47 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087927E1FAA30C900CCED47 /* DateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +54,16 @@
 		508792651FA4F57000CCED47 /* EventDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDay.swift; sourceTree = "<group>"; };
 		508792671FA4F59500CCED47 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		508792691FA643EB00CCED47 /* DraggingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggingView.swift; sourceTree = "<group>"; };
+		5087926C1FA6450500CCED47 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5087926E1FA64A7300CCED47 /* HintOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintOverlay.swift; sourceTree = "<group>"; };
 		508792701FA935DB00CCED47 /* DraggingViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggingViewDelegate.swift; sourceTree = "<group>"; };
 		508792721FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+DraggingViewDelegate.swift"; sourceTree = "<group>"; };
+		508792741FA9C96700CCED47 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		508792761FA9D07D00CCED47 /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
+		508792781FA9D4B600CCED47 /* URL+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Utils.swift"; sourceTree = "<group>"; };
+		5087927A1FA9D5D300CCED47 /* Event+Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+Generator.swift"; sourceTree = "<group>"; };
+		5087927C1FA9D7BA00CCED47 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		5087927E1FAA30C900CCED47 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,14 +107,16 @@
 			children = (
 				508792401FA4EC7300CCED47 /* AppDelegate.swift */,
 				508792421FA4EC7300CCED47 /* ViewController.swift */,
-				5087925D1FA4ED7900CCED47 /* Settings.swift */,
-				5087925F1FA4EF9100CCED47 /* Event.swift */,
-				508792651FA4F57000CCED47 /* EventDay.swift */,
-				508792671FA4F59500CCED47 /* File.swift */,
 				508792721FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift */,
+				508792741FA9C96700CCED47 /* FileUtils.swift */,
+				508792781FA9D4B600CCED47 /* URL+Utils.swift */,
+				5087927C1FA9D7BA00CCED47 /* Date+Utils.swift */,
+				508792761FA9D07D00CCED47 /* NSError.swift */,
 				508792691FA643EB00CCED47 /* DraggingView.swift */,
 				508792701FA935DB00CCED47 /* DraggingViewDelegate.swift */,
 				5087926E1FA64A7300CCED47 /* HintOverlay.swift */,
+				5087926C1FA6450500CCED47 /* Colors.swift */,
+				5087926B1FA644D100CCED47 /* Models */,
 				508792441FA4EC7300CCED47 /* Assets.xcassets */,
 				508792461FA4EC7300CCED47 /* Main.storyboard */,
 				508792491FA4EC7300CCED47 /* Info.plist */,
@@ -113,8 +129,21 @@
 			children = (
 				508792541FA4EC7300CCED47 /* Info.plist */,
 				508792631FA4F0B200CCED47 /* SettingsTests.swift */,
+				5087927E1FAA30C900CCED47 /* DateTests.swift */,
 			);
 			path = PhotoOrganizerTests;
+			sourceTree = "<group>";
+		};
+		5087926B1FA644D100CCED47 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5087925D1FA4ED7900CCED47 /* Settings.swift */,
+				5087927A1FA9D5D300CCED47 /* Event+Generator.swift */,
+				5087925F1FA4EF9100CCED47 /* Event.swift */,
+				508792651FA4F57000CCED47 /* EventDay.swift */,
+				508792671FA4F59500CCED47 /* File.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,12 +251,18 @@
 			files = (
 				508792731FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift in Sources */,
 				508792601FA4EF9100CCED47 /* Event.swift in Sources */,
+				5087926D1FA6450500CCED47 /* Colors.swift in Sources */,
+				508792771FA9D07D00CCED47 /* NSError.swift in Sources */,
+				508792751FA9C96700CCED47 /* FileUtils.swift in Sources */,
+				5087927D1FA9D7BA00CCED47 /* Date+Utils.swift in Sources */,
 				508792681FA4F59500CCED47 /* File.swift in Sources */,
 				5087926A1FA643EB00CCED47 /* DraggingView.swift in Sources */,
 				508792711FA935DB00CCED47 /* DraggingViewDelegate.swift in Sources */,
 				5087926F1FA64A7300CCED47 /* HintOverlay.swift in Sources */,
 				5087925E1FA4ED7900CCED47 /* Settings.swift in Sources */,
+				5087927B1FA9D5D300CCED47 /* Event+Generator.swift in Sources */,
 				508792431FA4EC7300CCED47 /* ViewController.swift in Sources */,
+				508792791FA9D4B600CCED47 /* URL+Utils.swift in Sources */,
 				508792661FA4F57000CCED47 /* EventDay.swift in Sources */,
 				508792411FA4EC7300CCED47 /* AppDelegate.swift in Sources */,
 			);
@@ -238,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				508792641FA4F0B200CCED47 /* SettingsTests.swift in Sources */,
+				5087927F1FAA30C900CCED47 /* DateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

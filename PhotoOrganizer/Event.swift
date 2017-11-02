@@ -8,16 +8,21 @@
 
 import Cocoa
 
-struct Event {
+
+class Event {
 
     var name: String?
-    private var days: [EventDay]
+    private(set) var days: [EventDay]
     var hasSingleDay: Bool {
         return days.count == 1
     }
 
-    init(days: [EventDay]) {
+    init(days: [EventDay] = []) {
         self.days = days
+    }
+
+    func add(eventDay: EventDay) {
+        days.append(eventDay)
     }
 
 }

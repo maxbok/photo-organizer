@@ -9,7 +9,7 @@
 import Cocoa
 
 
-struct EventDay {
+class EventDay {
 
     var files = [File]()
     let date: Date

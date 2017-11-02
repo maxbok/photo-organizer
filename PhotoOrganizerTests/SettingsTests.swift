@@ -33,7 +33,7 @@ class SettingsTests: XCTestCase {
 
     func testRelativePathSingleDate() {
         let eventDay = eventDayWith(year: 2017, month: 5, day: 16)
-        var event = Event(days: [eventDay])
+        let event = Event(days: [eventDay])
         event.name = "Test event name"
 
         let file = File(originalPath: "test/path/file_name.png")
@@ -60,7 +60,7 @@ class SettingsTests: XCTestCase {
         let eventDay1 = eventDayWith(year: 2017, month: 5, day: 16)
         let eventDay2 = eventDayWith(year: 2017, month: 5, day: 17)
 
-        var event = Event(days: [eventDay1, eventDay2])
+        let event = Event(days: [eventDay1, eventDay2])
         event.name = "Test event name"
 
         let file = File(originalPath: "test/path/file_name.png")
