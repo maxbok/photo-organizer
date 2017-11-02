@@ -16,6 +16,10 @@
 		508792641FA4F0B200CCED47 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792631FA4F0B200CCED47 /* SettingsTests.swift */; };
 		508792661FA4F57000CCED47 /* EventDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792651FA4F57000CCED47 /* EventDay.swift */; };
 		508792681FA4F59500CCED47 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792671FA4F59500CCED47 /* File.swift */; };
+		5087926A1FA643EB00CCED47 /* DraggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792691FA643EB00CCED47 /* DraggingView.swift */; };
+		5087926F1FA64A7300CCED47 /* HintOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087926E1FA64A7300CCED47 /* HintOverlay.swift */; };
+		508792711FA935DB00CCED47 /* DraggingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792701FA935DB00CCED47 /* DraggingViewDelegate.swift */; };
+		508792731FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792721FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,10 @@
 		508792631FA4F0B200CCED47 /* SettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		508792651FA4F57000CCED47 /* EventDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDay.swift; sourceTree = "<group>"; };
 		508792671FA4F59500CCED47 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		508792691FA643EB00CCED47 /* DraggingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggingView.swift; sourceTree = "<group>"; };
+		5087926E1FA64A7300CCED47 /* HintOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintOverlay.swift; sourceTree = "<group>"; };
+		508792701FA935DB00CCED47 /* DraggingViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggingViewDelegate.swift; sourceTree = "<group>"; };
+		508792721FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+DraggingViewDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +97,10 @@
 				5087925F1FA4EF9100CCED47 /* Event.swift */,
 				508792651FA4F57000CCED47 /* EventDay.swift */,
 				508792671FA4F59500CCED47 /* File.swift */,
+				508792721FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift */,
+				508792691FA643EB00CCED47 /* DraggingView.swift */,
+				508792701FA935DB00CCED47 /* DraggingViewDelegate.swift */,
+				5087926E1FA64A7300CCED47 /* HintOverlay.swift */,
 				508792441FA4EC7300CCED47 /* Assets.xcassets */,
 				508792461FA4EC7300CCED47 /* Main.storyboard */,
 				508792491FA4EC7300CCED47 /* Info.plist */,
@@ -208,8 +220,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508792731FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift in Sources */,
 				508792601FA4EF9100CCED47 /* Event.swift in Sources */,
 				508792681FA4F59500CCED47 /* File.swift in Sources */,
+				5087926A1FA643EB00CCED47 /* DraggingView.swift in Sources */,
+				508792711FA935DB00CCED47 /* DraggingViewDelegate.swift in Sources */,
+				5087926F1FA64A7300CCED47 /* HintOverlay.swift in Sources */,
 				5087925E1FA4ED7900CCED47 /* Settings.swift in Sources */,
 				508792431FA4EC7300CCED47 /* ViewController.swift in Sources */,
 				508792661FA4F57000CCED47 /* EventDay.swift in Sources */,

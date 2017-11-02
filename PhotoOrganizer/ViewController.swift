@@ -10,18 +10,31 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    let fileUtils = FileUtils()
+
+    lazy var draggingView: DraggingView = {
+        let view = DraggingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.delegate = self
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.addSubview(draggingView)
+
+        createViewConstraints()
     }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    private func createViewConstraints() {
+        NSLayoutConstraint.activate([
+            draggingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            draggingView.topAnchor.constraint(equalTo: view.topAnchor),
+            draggingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            draggingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
     }
-
 
 }
 
