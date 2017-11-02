@@ -108,14 +108,11 @@
 				508792401FA4EC7300CCED47 /* AppDelegate.swift */,
 				508792421FA4EC7300CCED47 /* ViewController.swift */,
 				508792721FA9362100CCED47 /* ViewController+DraggingViewDelegate.swift */,
-				508792741FA9C96700CCED47 /* FileUtils.swift */,
-				508792781FA9D4B600CCED47 /* URL+Utils.swift */,
-				5087927C1FA9D7BA00CCED47 /* Date+Utils.swift */,
-				508792761FA9D07D00CCED47 /* NSError.swift */,
 				508792691FA643EB00CCED47 /* DraggingView.swift */,
 				508792701FA935DB00CCED47 /* DraggingViewDelegate.swift */,
 				5087926E1FA64A7300CCED47 /* HintOverlay.swift */,
 				5087926C1FA6450500CCED47 /* Colors.swift */,
+				508792801FABC37300CCED47 /* Utils */,
 				5087926B1FA644D100CCED47 /* Models */,
 				508792441FA4EC7300CCED47 /* Assets.xcassets */,
 				508792461FA4EC7300CCED47 /* Main.storyboard */,
@@ -144,6 +141,17 @@
 				508792671FA4F59500CCED47 /* File.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		508792801FABC37300CCED47 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				508792741FA9C96700CCED47 /* FileUtils.swift */,
+				508792781FA9D4B600CCED47 /* URL+Utils.swift */,
+				5087927C1FA9D7BA00CCED47 /* Date+Utils.swift */,
+				508792761FA9D07D00CCED47 /* NSError.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

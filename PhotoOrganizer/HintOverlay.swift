@@ -27,14 +27,10 @@ class HintOverlay: NSView {
         label.isEditable = false
         label.drawsBackground = false
         label.isBordered = false
+        label.alignment = .center
+        label.font = .boldSystemFont(ofSize: 24)
         return label
     }()
-
-    override var intrinsicContentSize: NSSize {
-        let size = label.intrinsicContentSize
-        return CGSize(width: size.width + 12,
-                      height: size.height + 6)
-    }
 
     var state: State = .none {
         didSet {
@@ -61,22 +57,35 @@ class HintOverlay: NSView {
     }
 
     private func createConstraints() {
+        let margin: CGFloat = 20
+
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor)
+            label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            label.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: -2 * margin),
+            label.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor, constant: -2 * margin)
             ])
     }
 
     override func draw(_ dirtyRect: NSRect) {
-        NSColor.gray.withAlphaComponent(0.6).setFill()
-        let radius: CGFloat = 6
-        let path = NSBezierPath(roundedRect: bounds, xRadius: radius, yRadius: radius)
-        path.fill()
+        NSColor.black.withAlphaComponent(0.4).setStroke()
+
+        let radius: CGFloat = 44
+        let lineWidth: CGFloat = 10
+        let rect = CGRect(
+            x: lineWidth / 2,
+            y: lineWidth / 2,
+            width: bounds.width - lineWidth,
+            height: bounds.height - lineWidth)
+        let path = NSBezierPath(roundedRect: rect, xRadius: radius, yRadius: radius)
+        path.lineWidth = lineWidth
+        let dash = (bounds.width - lineWidth + 2 * radius) / 18
+        path.setLineDash([dash, dash], count: 2, phase: 0)
+        path.stroke()
     }
 
     private func refresh() {
         label.stringValue = state.text
-        invalidateIntrinsicContentSize()
     }
     
 }

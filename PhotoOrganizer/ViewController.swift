@@ -32,7 +32,9 @@ class ViewController: NSViewController {
             draggingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             draggingView.topAnchor.constraint(equalTo: view.topAnchor),
             draggingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            draggingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            draggingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            draggingView.widthAnchor.constraint(equalTo: draggingView.heightAnchor),
+            draggingView.heightAnchor.constraint(equalToConstant: 512)
             ])
     }
 

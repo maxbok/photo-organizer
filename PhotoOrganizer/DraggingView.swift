@@ -35,9 +35,13 @@ class DraggingView: NSView {
     }
 
     private func createConstraints() {
+        let multiplier: CGFloat = 0.6
+
         NSLayoutConstraint.activate([
             hintOverlay.centerXAnchor.constraint(equalTo: centerXAnchor),
-            hintOverlay.centerYAnchor.constraint(equalTo: centerYAnchor)
+            hintOverlay.centerYAnchor.constraint(equalTo: centerYAnchor),
+            hintOverlay.widthAnchor.constraint(equalTo: widthAnchor, multiplier: multiplier),
+            hintOverlay.heightAnchor.constraint(equalTo: heightAnchor, multiplier: multiplier)
             ])
     }
 
