@@ -27,9 +27,11 @@
 		5087927B1FA9D5D300CCED47 /* Event+Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087927A1FA9D5D300CCED47 /* Event+Generator.swift */; };
 		5087927D1FA9D7BA00CCED47 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087927C1FA9D7BA00CCED47 /* Date+Utils.swift */; };
 		5087927F1FAA30C900CCED47 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087927E1FAA30C900CCED47 /* DateTests.swift */; };
+		508792831FABCB8600CCED47 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792821FABCB8600CCED47 /* EventsViewController.swift */; };
 		508792851FABCB9B00CCED47 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792841FABCB9B00CCED47 /* MainWindowController.swift */; };
 		508792871FABCBCB00CCED47 /* DragAndDropViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792861FABCBCB00CCED47 /* DragAndDropViewControllerDelegate.swift */; };
 		508792891FABCD2500CCED47 /* MainWindowController+DragAndDropViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792881FABCD2500CCED47 /* MainWindowController+DragAndDropViewControllerDelegate.swift */; };
+		5087928C1FAC4A9900CCED47 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087928B1FAC4A9900CCED47 /* ProcessingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,9 +69,11 @@
 		5087927A1FA9D5D300CCED47 /* Event+Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+Generator.swift"; sourceTree = "<group>"; };
 		5087927C1FA9D7BA00CCED47 /* Date+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		5087927E1FAA30C900CCED47 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
+		508792821FABCB8600CCED47 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		508792841FABCB9B00CCED47 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		508792861FABCBCB00CCED47 /* DragAndDropViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragAndDropViewControllerDelegate.swift; sourceTree = "<group>"; };
 		508792881FABCD2500CCED47 /* MainWindowController+DragAndDropViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainWindowController+DragAndDropViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		5087928B1FAC4A9900CCED47 /* ProcessingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,15 @@
 				508792861FABCBCB00CCED47 /* DragAndDropViewControllerDelegate.swift */,
 			);
 			name = "Drag & Drop";
+			sourceTree = "<group>";
+		};
+		5087928A1FAC4A7100CCED47 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				508792821FABCB8600CCED47 /* EventsViewController.swift */,
+				5087928B1FAC4A9900CCED47 /* ProcessingView.swift */,
+			);
+			name = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +292,7 @@
 				508792601FA4EF9100CCED47 /* Event.swift in Sources */,
 				5087926D1FA6450500CCED47 /* Colors.swift in Sources */,
 				508792771FA9D07D00CCED47 /* NSError.swift in Sources */,
+				5087928C1FAC4A9900CCED47 /* ProcessingView.swift in Sources */,
 				508792871FABCBCB00CCED47 /* DragAndDropViewControllerDelegate.swift in Sources */,
 				508792751FA9C96700CCED47 /* FileUtils.swift in Sources */,
 				5087927D1FA9D7BA00CCED47 /* Date+Utils.swift in Sources */,
@@ -287,6 +301,7 @@
 				508792851FABCB9B00CCED47 /* MainWindowController.swift in Sources */,
 				508792711FA935DB00CCED47 /* DraggingViewDelegate.swift in Sources */,
 				5087926F1FA64A7300CCED47 /* HintOverlay.swift in Sources */,
+				508792831FABCB8600CCED47 /* EventsViewController.swift in Sources */,
 				5087925E1FA4ED7900CCED47 /* Settings.swift in Sources */,
 				5087927B1FA9D5D300CCED47 /* Event+Generator.swift in Sources */,
 				508792431FA4EC7300CCED47 /* DragAndDropViewController.swift in Sources */,

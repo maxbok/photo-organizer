@@ -12,6 +12,8 @@ import Foundation
 extension MainWindowController: DragAndDropViewControllerDelegate {
 
     func found(events: [Event]) {
+        let controller = EventsViewController(events: events)
+        contentViewController = controller
     }
 
 }
