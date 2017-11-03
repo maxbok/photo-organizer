@@ -1,5 +1,5 @@
 //
-//  ViewController+DraggingViewDelegate.swift
+//  DragAndDropViewController+DraggingViewDelegate.swift
 //  PhotoOrganizer
 //
 //  Created by Maxime Bokobza on 31/10/2017.
@@ -9,12 +9,12 @@
 import Foundation
 
 
-extension ViewController: DraggingViewDelegate {
+extension DragAndDropViewController: DraggingViewDelegate {
 
     func dragged(urls: [URL]) {
         let urls = fileUtils.filesURLs(from: urls)
         let events = Event.from(files: urls)
-        
+        delegate?.found(events: events)
     }
 
 }

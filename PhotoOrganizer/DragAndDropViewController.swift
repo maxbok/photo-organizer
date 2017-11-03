@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DragAndDropViewController.swift
 //  PhotoOrganizer
 //
 //  Created by Maxime Bokobza on 28/10/2017.
@@ -8,9 +8,28 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class DragAndDropViewController: NSViewController {
+
+    override var preferredContentSize: NSSize {
+        set { }
+        get {
+            return NSSize(width: 512, height: 512)
+        }
+    }
+
+    override var preferredMinimumSize: NSSize {
+        set { }
+        get { return preferredContentSize }
+    }
+
+    override var preferredMaximumSize: NSSize {
+        set { }
+        get { return preferredContentSize }
+    }
 
     let fileUtils = FileUtils()
+
+    weak var delegate: DragAndDropViewControllerDelegate?
 
     lazy var draggingView: DraggingView = {
         let view = DraggingView()
@@ -18,6 +37,10 @@ class ViewController: NSViewController {
         view.delegate = self
         return view
     }()
+
+    override func loadView() {
+        self.view = NSView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +55,7 @@ class ViewController: NSViewController {
             draggingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             draggingView.topAnchor.constraint(equalTo: view.topAnchor),
             draggingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            draggingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            draggingView.widthAnchor.constraint(equalTo: draggingView.heightAnchor),
-            draggingView.heightAnchor.constraint(equalToConstant: 512)
+            draggingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }
 
