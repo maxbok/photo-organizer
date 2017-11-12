@@ -13,6 +13,20 @@ class EventsWindowController: NSWindowController {
     private let container = ViewController()
     private let processingViewController = ProcessingViewController()
 
+    private lazy var eventViewController: EventViewController = {
+        let controller = EventViewController()
+        controller.delegate = self
+        return controller
+    }()
+
+    var events = [Event]() {
+        didSet {
+            eventIndex = 0
+        }
+    }
+
+    private(set) var eventIndex = 0
+
     init() {
         super.init(window: NSWindow())
 
@@ -27,7 +41,12 @@ class EventsWindowController: NSWindowController {
     // Processing
 
     func processing() {
+        if processingViewController.parent == nil {
+            container.removeChildren()
+            container.addMainChildViewController(processingViewController)
+        }
         processingViewController.hint = "Processing…"
+        processingViewController.progress = nil
     }
 
     func processing(_ count: Int, of total: Int) {
@@ -37,13 +56,18 @@ class EventsWindowController: NSWindowController {
 
     // Event
 
-    func show(event: Event) {
-        guard let controller = EventViewController(event: event) else {
-            return
-        }
+    func show(events: [Event]) {
+        self.events = events
 
         container.removeChildren()
-        container.addMainChildViewController(controller)
+        container.addMainChildViewController(eventViewController)
+
+        showNextEvent()
+    }
+
+    func showNextEvent() {
+        eventViewController.show(event: events[eventIndex], index: eventIndex, total: events.count)
+        eventIndex += 1
     }
 
 }

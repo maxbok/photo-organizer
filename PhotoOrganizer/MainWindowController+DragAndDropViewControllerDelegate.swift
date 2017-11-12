@@ -41,8 +41,7 @@ extension MainWindowController: DragAndDropViewControllerDelegate {
         }
 
         group.notify(queue: DispatchQueue.main) {
-            guard let event = events.first else { return }
-            self.eventsWindowController.show(event: event)
+            self.eventsWindowController.show(events: events)
         }
     }
 

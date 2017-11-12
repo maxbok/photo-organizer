@@ -10,7 +10,15 @@ import Cocoa
 
 class EventViewController: ViewController {
 
-    let event: Event
+    weak var delegate: EventViewControllerDelegate?
+
+    var event: Event? {
+        didSet {
+            textField.stringValue = ""
+            textField.becomeFirstResponder()
+            collectionView.reloadData()
+        }
+    }
 
     override var preferredContentSize: NSSize {
         set { }
@@ -27,7 +35,15 @@ class EventViewController: ViewController {
         label.isBordered = false
         label.alignment = .center
         label.font = .systemFont(ofSize: 17)
+        label.stringValue = "Event name:"
         return label
+    }()
+
+    lazy var textField: NSTextField = {
+        let field = NSTextField()
+        field.translatesAutoresizingMaskIntoConstraints = false
+        field.delegate = self
+        return field
     }()
 
     lazy var scrollView: NSScrollView = {
@@ -41,9 +57,9 @@ class EventViewController: ViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.keyEquivalent = "\r"
         button.bezelStyle = .rounded
-        button.title = "Submit"
         button.target = self
         button.action = #selector(submit)
+        button.isEnabled = false
         return button
     }()
 
@@ -59,7 +75,6 @@ class EventViewController: ViewController {
         view.collectionViewLayout = layout
         view.dataSource = self
         view.delegate = self
-        view.isHidden = true
 
         view.register(FileItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "item"))
         view.register(CollectionViewHeader.self,
@@ -69,54 +84,49 @@ class EventViewController: ViewController {
         return view
     }()
 
-    init?(event: Event) {
-        self.event = event
-
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.addSubview(titleLabel)
+        view.addSubview(textField)
         view.addSubview(scrollView)
         view.addSubview(submitButton)
         scrollView.documentView = collectionView
 
         createViewConstraints()
-
-        showEvent()
     }
 
     private func createViewConstraints() {
         let margin: CGFloat = 20
 
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: margin),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            textField.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: margin),
+            textField.topAnchor.constraint(equalTo: titleLabel.topAnchor),
+            textField.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+
+            submitButton.leadingAnchor.constraint(equalTo: textField.trailingAnchor, constant: margin),
+            submitButton.topAnchor.constraint(equalTo: titleLabel.topAnchor),
+            submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            submitButton.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor),
 
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: margin),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-
-            submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-            submitButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: margin),
-            submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin)
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin)
             ])
     }
 
-    func showEvent() {
-        collectionView.reloadData()
-        collectionView.isHidden = false
+    @objc func submit() {
+        event?.name = textField.stringValue
+        delegate?.eventNamed()
     }
 
-    @objc func submit() {
-
+    func show(event: Event, index: Int, total: Int) {
+        self.event = event
+        submitButton.title = index + 1 < total ? "Next" : "Done"
     }
     
 }
