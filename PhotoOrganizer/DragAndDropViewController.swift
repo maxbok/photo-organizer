@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class DragAndDropViewController: NSViewController {
+class DragAndDropViewController: ViewController {
 
     override var preferredContentSize: NSSize {
         set { }
@@ -27,8 +27,6 @@ class DragAndDropViewController: NSViewController {
         get { return preferredContentSize }
     }
 
-    let fileUtils = FileUtils()
-
     weak var delegate: DragAndDropViewControllerDelegate?
 
     lazy var draggingView: DraggingView = {
@@ -37,10 +35,6 @@ class DragAndDropViewController: NSViewController {
         view.delegate = self
         return view
     }()
-
-    override func loadView() {
-        self.view = NSView()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

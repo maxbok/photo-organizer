@@ -8,7 +8,7 @@
 
 import Cocoa
 
-struct File {
+class File {
 
     var originalPath: String
     var preview: NSImage?
@@ -19,6 +19,10 @@ struct File {
 
     init(originalPath: String) {
         self.originalPath = originalPath
+    }
+
+    func loadPreview() {
+        preview = NSImage(contentsOfFile: originalPath)?.resize(to: NSSize(width: 200, height: 200))
     }
 
 }

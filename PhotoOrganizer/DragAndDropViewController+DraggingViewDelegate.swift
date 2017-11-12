@@ -12,9 +12,17 @@ import Foundation
 extension DragAndDropViewController: DraggingViewDelegate {
 
     func dragged(urls: [URL]) {
-        let urls = fileUtils.filesURLs(from: urls)
-        let events = Event.from(files: urls)
-        delegate?.found(events: events)
+        delegate?.processing()
+
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            let fileUtils = FileUtils()
+            let urls = fileUtils.filesURLs(from: urls)
+            let events = Event.from(files: urls)
+
+            DispatchQueue.main.async {
+                self?.delegate?.found(events: events)
+            }
+        }
     }
 
 }

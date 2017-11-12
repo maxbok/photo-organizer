@@ -11,6 +11,7 @@ import Foundation
 
 protocol DragAndDropViewControllerDelegate: class {
 
+    func processing()
     func found(events: [Event])
 
 }

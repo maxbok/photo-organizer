@@ -16,6 +16,10 @@ class MainWindowController: NSWindowController {
         return controller
     }()
 
+    lazy var eventsWindowController: EventsWindowController = {
+        return EventsWindowController()
+    }()
+
     override func windowDidLoad() {
         super.windowDidLoad()
 
