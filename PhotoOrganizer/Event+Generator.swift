@@ -37,7 +37,7 @@ extension Event {
     }
 
     private static func events(from eventDays: [EventDay]) -> [Event] {
-        let eventDays = eventDays.sorted(by: { $0.0.date.compare($0.1.date) == .orderedAscending })
+        let eventDays = eventDays.sorted(by: { $0.date.compare($1.date) == .orderedAscending })
 
         var events = [Event]()
         var currentEvent: Event?

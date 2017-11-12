@@ -23,7 +23,7 @@ class DraggingView: NSView {
     init() {
         super.init(frame: .zero)
 
-        register(forDraggedTypes: [kUTTypeURL as String])
+        registerForDraggedTypes([NSPasteboard.PasteboardType(rawValue: kUTTypeURL as String as String)])
 
         addSubview(hintOverlay)
 
@@ -49,7 +49,7 @@ class DraggingView: NSView {
         super.draw(dirtyRect)
 
         NSColor.paleBlue.setFill()
-        NSRectFill(dirtyRect)
+        dirtyRect.fill()
     }
 
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
@@ -80,7 +80,7 @@ class DraggingView: NSView {
             return false
         }
 
-        let paths = items.map { $0.string(forType: supportedType) }.flatMap { $0 }
+        let paths = items.map { $0.string(forType: NSPasteboard.PasteboardType(rawValue: supportedType)) }.flatMap { $0 }
         let urls = paths.map { URL(string: $0) }.flatMap { $0 }
         delegate?.dragged(urls: urls)
 
@@ -92,7 +92,7 @@ class DraggingView: NSView {
             return []
         }
 
-        return items.filter { $0.types.contains(supportedType) }
+        return items.filter { $0.types.contains(NSPasteboard.PasteboardType(rawValue: supportedType)) }
     }
 
 }
