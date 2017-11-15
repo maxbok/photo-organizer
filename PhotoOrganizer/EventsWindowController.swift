@@ -70,4 +70,42 @@ class EventsWindowController: NSWindowController {
         eventIndex += 1
     }
 
+    func eventsNamed() {
+        processing()
+
+        let fileUtils = FileUtils()
+
+        let eventFormatter = DateFormatter()
+        eventFormatter.dateFormat = "yyyyMMdd"
+
+        let eventDayFormatter = DateFormatter()
+        eventDayFormatter.dateFormat = "yy-MM-dd"
+
+        let settings = Settings(eventDateFormatter: eventFormatter, eventDayFormatter: eventDayFormatter)
+
+        let destinationFolder = settings.outputFolderPath
+
+        for event in events {
+            for day in event.days {
+                let dayFolder = settings.relativePathToFolder(for: event, on: day)
+                fileUtils.copyFiles(
+                    at: day.files.map { $0.originalPath },
+                    to: "\(destinationFolder)/\(dayFolder)",
+                    progress: { count, total in
+                        DispatchQueue.main.async {
+                            self.processing(count, of: total)
+                        }
+                    },
+                    completion: {
+                        DispatchQueue.main.async {
+                            if let window = self.window {
+                                window.sheetParent?.endSheet(window)
+                            }
+                        }
+                    }
+                )
+            }
+        }
+    }
+
 }

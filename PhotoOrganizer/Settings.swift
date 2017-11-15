@@ -28,7 +28,7 @@ struct Settings {
         self.keepOriginals = keepOriginals
     }
 
-    func relativePath(for event: Event, on eventDay: EventDay, with file: File) -> String {
+    func relativePathToFolder(for event: Event, on eventDay: EventDay) -> String {
         let dateString: String
         if event.hasSingleDay {
             dateString = eventDateFormatter.string(from: eventDay.date)
@@ -44,11 +44,11 @@ struct Settings {
         }
 
         if event.hasSingleDay {
-            return "\(eventPath)/\(file.name)"
+            return "\(eventPath)"
         }
 
         let dayPath = eventDayFormatter.string(from: eventDay.date)
-        return "\(eventPath)/\(dayPath)/\(file.name)"
+        return "\(eventPath)/\(dayPath)"
     }
 
 }

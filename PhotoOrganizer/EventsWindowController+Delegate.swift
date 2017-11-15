@@ -15,7 +15,7 @@ extension EventsWindowController: EventViewControllerDelegate {
         if events.count > eventIndex {
             showNextEvent()
         } else {
-            processing()
+            eventsNamed()
         }
     }
 

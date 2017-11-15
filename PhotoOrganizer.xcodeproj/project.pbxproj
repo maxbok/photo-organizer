@@ -12,6 +12,8 @@
 		502B1DFF1FB90351009F8706 /* EventViewController+NSTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B1DFE1FB90351009F8706 /* EventViewController+NSTextFieldDelegate.swift */; };
 		502B1E011FB90530009F8706 /* EventViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B1E001FB90530009F8706 /* EventViewControllerDelegate.swift */; };
 		502B1E031FB90603009F8706 /* EventsWindowController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B1E021FB90603009F8706 /* EventsWindowController+Delegate.swift */; };
+		502B1E051FBB9C64009F8706 /* Error+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B1E041FBB9C64009F8706 /* Error+Utils.swift */; };
+		502B1E071FBBAA22009F8706 /* FileUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B1E061FBBAA22009F8706 /* FileUtilsTests.swift */; };
 		508792411FA4EC7300CCED47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792401FA4EC7300CCED47 /* AppDelegate.swift */; };
 		508792431FA4EC7300CCED47 /* DragAndDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792421FA4EC7300CCED47 /* DragAndDropViewController.swift */; };
 		508792451FA4EC7300CCED47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508792441FA4EC7300CCED47 /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		502B1DFE1FB90351009F8706 /* EventViewController+NSTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventViewController+NSTextFieldDelegate.swift"; sourceTree = "<group>"; };
 		502B1E001FB90530009F8706 /* EventViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewControllerDelegate.swift; sourceTree = "<group>"; };
 		502B1E021FB90603009F8706 /* EventsWindowController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventsWindowController+Delegate.swift"; sourceTree = "<group>"; };
+		502B1E041FBB9C64009F8706 /* Error+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Utils.swift"; sourceTree = "<group>"; };
+		502B1E061FBBAA22009F8706 /* FileUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtilsTests.swift; sourceTree = "<group>"; };
 		5087923D1FA4EC7300CCED47 /* PhotoOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508792401FA4EC7300CCED47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		508792421FA4EC7300CCED47 /* DragAndDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDropViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +147,6 @@
 				508792841FABCB9B00CCED47 /* MainWindowController.swift */,
 				508792881FABCD2500CCED47 /* MainWindowController+DragAndDropViewControllerDelegate.swift */,
 				5092FC0C1FB8C040004AF359 /* MainWindow.swift */,
-				5092FC141FB8CCC9004AF359 /* Utils */,
 				5092FC111FB8C5C5004AF359 /* Events */,
 				508792811FABCAD900CCED47 /* Drag & Drop */,
 				508792801FABC37300CCED47 /* Utils */,
@@ -161,6 +164,7 @@
 				508792541FA4EC7300CCED47 /* Info.plist */,
 				508792631FA4F0B200CCED47 /* SettingsTests.swift */,
 				5087927E1FAA30C900CCED47 /* DateTests.swift */,
+				502B1E061FBBAA22009F8706 /* FileUtilsTests.swift */,
 			);
 			path = PhotoOrganizerTests;
 			sourceTree = "<group>";
@@ -180,11 +184,15 @@
 		508792801FABC37300CCED47 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5092FC151FB8CCDA004AF359 /* ViewController.swift */,
+				502B1DFA1FB8D560009F8706 /* NSViewController+Children.swift */,
+				502B1DFC1FB8DD97009F8706 /* NSImage+Utils.swift */,
 				5087926C1FA6450500CCED47 /* Colors.swift */,
 				508792741FA9C96700CCED47 /* FileUtils.swift */,
 				508792781FA9D4B600CCED47 /* URL+Utils.swift */,
 				5087927C1FA9D7BA00CCED47 /* Date+Utils.swift */,
 				508792761FA9D07D00CCED47 /* NSError.swift */,
+				502B1E041FBB9C64009F8706 /* Error+Utils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -233,16 +241,6 @@
 				5087928A1FAC4A7100CCED47 /* Event */,
 			);
 			name = Events;
-			sourceTree = "<group>";
-		};
-		5092FC141FB8CCC9004AF359 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				5092FC151FB8CCDA004AF359 /* ViewController.swift */,
-				502B1DFA1FB8D560009F8706 /* NSViewController+Children.swift */,
-				502B1DFC1FB8DD97009F8706 /* NSImage+Utils.swift */,
-			);
-			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +351,7 @@
 				508792731FA9362100CCED47 /* DragAndDropViewController+DraggingViewDelegate.swift in Sources */,
 				508792601FA4EF9100CCED47 /* Event.swift in Sources */,
 				5087926D1FA6450500CCED47 /* Colors.swift in Sources */,
+				502B1E051FBB9C64009F8706 /* Error+Utils.swift in Sources */,
 				508792771FA9D07D00CCED47 /* NSError.swift in Sources */,
 				508792871FABCBCB00CCED47 /* DragAndDropViewControllerDelegate.swift in Sources */,
 				508792751FA9C96700CCED47 /* FileUtils.swift in Sources */,
@@ -390,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				508792641FA4F0B200CCED47 /* SettingsTests.swift in Sources */,
+				502B1E071FBBAA22009F8706 /* FileUtilsTests.swift in Sources */,
 				5087927F1FAA30C900CCED47 /* DateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

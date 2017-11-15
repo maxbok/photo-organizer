@@ -26,9 +26,7 @@ class SettingsTests: XCTestCase {
         let eventDay = eventDayWith(year: 2017, month: 5, day: 16)
         let event = Event(days: [eventDay])
 
-        let file = File(originalPath: "test/path/file_name.png")
-
-        XCTAssertEqual(settings.relativePath(for: event, on: eventDay, with: file), "20170516/file_name.png")
+        XCTAssertEqual(settings.relativePathToFolder(for: event, on: eventDay), "20170516")
     }
 
     func testRelativePathSingleDate() {
@@ -36,10 +34,8 @@ class SettingsTests: XCTestCase {
         let event = Event(days: [eventDay])
         event.name = "Test event name"
 
-        let file = File(originalPath: "test/path/file_name.png")
-
-        let path = settings.relativePath(for: event, on: eventDay, with: file)
-        XCTAssertEqual(path, "20170516 Test event name/file_name.png")
+        let path = settings.relativePathToFolder(for: event, on: eventDay)
+        XCTAssertEqual(path, "20170516 Test event name")
     }
 
     func testRelativePathMultipleDatesWithoutEventName() {
@@ -48,12 +44,10 @@ class SettingsTests: XCTestCase {
 
         let event = Event(days: [eventDay1, eventDay2])
 
-        let file = File(originalPath: "test/path/file_name.png")
-
-        let path1 = settings.relativePath(for: event, on: eventDay1, with: file)
-        XCTAssertEqual(path1, "20170500/17-05-16/file_name.png")
-        let path2 = settings.relativePath(for: event, on: eventDay2, with: file)
-        XCTAssertEqual(path2, "20170500/17-05-17/file_name.png")
+        let path1 = settings.relativePathToFolder(for: event, on: eventDay1)
+        XCTAssertEqual(path1, "20170500/17-05-16")
+        let path2 = settings.relativePathToFolder(for: event, on: eventDay2)
+        XCTAssertEqual(path2, "20170500/17-05-17")
     }
 
     func testRelativePathMultipleDates() {
@@ -63,12 +57,10 @@ class SettingsTests: XCTestCase {
         let event = Event(days: [eventDay1, eventDay2])
         event.name = "Test event name"
 
-        let file = File(originalPath: "test/path/file_name.png")
-
-        let path1 = settings.relativePath(for: event, on: eventDay1, with: file)
-        XCTAssertEqual(path1, "20170500 Test event name/17-05-16/file_name.png")
-        let path2 = settings.relativePath(for: event, on: eventDay2, with: file)
-        XCTAssertEqual(path2, "20170500 Test event name/17-05-17/file_name.png")
+        let path1 = settings.relativePathToFolder(for: event, on: eventDay1)
+        XCTAssertEqual(path1, "20170500 Test event name/17-05-16")
+        let path2 = settings.relativePathToFolder(for: event, on: eventDay2)
+        XCTAssertEqual(path2, "20170500 Test event name/17-05-17")
     }
 
     private func eventDayWith(year: Int, month: Int, day: Int) -> EventDay {
