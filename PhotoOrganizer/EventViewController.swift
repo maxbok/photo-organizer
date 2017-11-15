@@ -65,7 +65,7 @@ class EventViewController: ViewController {
 
     lazy var collectionView: NSCollectionView = {
         let layout = NSCollectionViewFlowLayout()
-        layout.itemSize = NSSize(width: 120, height: 120)
+        layout.itemSize = NSSize(width: 160, height: 160)
         layout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         layout.minimumInteritemSpacing = 20.0
         layout.minimumLineSpacing = 20.0

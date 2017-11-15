@@ -36,7 +36,7 @@ class EventDay {
 
     func prepareSampleFiles(progress: @escaping (Int, Int) -> Void, completion: @escaping () -> Void) {
         let filesCount = files.count
-        let samplesCount = min(filesCount, 5)
+        let samplesCount = min(filesCount, 6)
 
         progress(0, samplesCount)
 

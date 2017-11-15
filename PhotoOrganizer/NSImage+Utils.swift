@@ -11,21 +11,23 @@ import Cocoa
 
 extension NSImage {
 
-    func resize(to toSize: NSSize) -> NSImage {
-        let ratio = min(toSize.width / size.width, toSize.height / size.height)
-
-        let destinationSize = NSSize(
-            width: ratio * size.width,
-            height: ratio * size.height)
+    func squareResize(to toSize: CGFloat) -> NSImage {
+        let destinationSize = NSSize(width: toSize, height: toSize)
 
         let resizedImage = NSImage(size: destinationSize)
         resizedImage.lockFocus()
 
         let destinationRect = NSRect(origin: .zero, size: destinationSize)
 
+        let minSide = min(size.width, size.height)
+        let fromSize = NSSize(width: minSide, height: minSide)
+        let fromOrigin = NSPoint(
+            x: (size.width - minSide) / 2,
+            y: (size.height - minSide) / 2)
+        let fromRect = NSRect(origin: fromOrigin, size: fromSize)
         draw(
             in: destinationRect,
-            from: NSRect(origin: .zero, size: size),
+            from: fromRect,
             operation: .sourceOver,
             fraction: 1)
 

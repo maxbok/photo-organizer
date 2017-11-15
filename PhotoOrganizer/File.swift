@@ -22,7 +22,7 @@ class File {
     }
 
     func loadPreview() {
-        preview = NSImage(contentsOfFile: originalPath)?.resize(to: NSSize(width: 200, height: 200))
+        preview = NSImage(contentsOfFile: originalPath)?.squareResize(to: 200)
     }
 
 }
