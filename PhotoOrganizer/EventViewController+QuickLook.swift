@@ -53,7 +53,7 @@ extension EventViewController: KeyEventCollectionViewDelegate, QLPreviewPanelDat
     // MARK: - QLPreviewPanelDataSource
 
     func numberOfPreviewItems(in panel: QLPreviewPanel!) -> Int {
-        return collectionView.selectionIndexes.count
+        return collectionView.selectionIndexPaths.count
     }
 
     func previewPanel(_ panel: QLPreviewPanel!, previewItemAt index: Int) -> QLPreviewItem! {
