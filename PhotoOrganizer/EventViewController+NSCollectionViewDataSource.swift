@@ -23,7 +23,7 @@ extension EventViewController: NSCollectionViewDataSource {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "item"), for: indexPath)
 
         guard   let fileItem = item as? FileItem,
-                let file = event?.days[indexPath.section].sampleFile(at: indexPath.item)
+                let file = file(at: indexPath)
         else {
             return item
         }

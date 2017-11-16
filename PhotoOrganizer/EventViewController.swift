@@ -71,10 +71,12 @@ class EventViewController: ViewController {
         layout.minimumLineSpacing = 20.0
         layout.scrollDirection = .vertical
 
-        let view = NSCollectionView()
+        let view = KeyEventCollectionView()
         view.collectionViewLayout = layout
         view.dataSource = self
         view.delegate = self
+        view.keyDelegate = self
+        view.isSelectable = true
 
         view.register(FileItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "item"))
         view.register(CollectionViewHeader.self,
@@ -127,6 +129,10 @@ class EventViewController: ViewController {
     func show(event: Event, index: Int, total: Int) {
         self.event = event
         submitButton.title = index + 1 < total ? "Next" : "Done"
+    }
+
+    func file(at indexPath: IndexPath) -> File? {
+        return event?.days[indexPath.section].sampleFile(at: indexPath.item)
     }
     
 }

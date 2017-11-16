@@ -18,6 +18,23 @@ class FileItem: NSCollectionViewItem {
         }
     }
 
+    override var acceptsFirstResponder: Bool {
+        return true
+    }
+
+    override var isSelected: Bool {
+        didSet {
+            focusView.isHidden = !isSelected
+        }
+    }
+
+    private lazy var focusView: NSView = {
+        let view = FocusView(cornerRadius: 8, lineWidth: 4)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        return view
+    }()
+
     override func loadView() {
         view = NSView()
     }
@@ -27,8 +44,13 @@ class FileItem: NSCollectionViewItem {
 
         let imageView = NSImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.wantsLayer = true
+        imageView.layer?.cornerRadius = 6
+        imageView.layer?.masksToBounds = true
         view.addSubview(imageView)
         self.imageView = imageView
+
+        view.addSubview(focusView)
 
         createViewConstraints()
     }
@@ -36,11 +58,18 @@ class FileItem: NSCollectionViewItem {
     private func createViewConstraints() {
         guard let imageView = imageView else { return }
 
+        let margin: CGFloat = 4
+
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            focusView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            focusView.topAnchor.constraint(equalTo: view.topAnchor),
+            focusView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            focusView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin)
             ])
     }
 

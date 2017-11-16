@@ -7,12 +7,23 @@
 //
 
 import Cocoa
+import Quartz
 
 
 extension EventViewController: NSCollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
         return NSSize(width: collectionView.bounds.width, height: 32)
+    }
+
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        guard   QLPreviewPanel.sharedPreviewPanelExists(),
+                QLPreviewPanel.shared().isVisible
+        else {
+            return
+        }
+
+        QLPreviewPanel.shared().reloadData()
     }
 
 }
