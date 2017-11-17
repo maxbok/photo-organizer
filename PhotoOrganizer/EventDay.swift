@@ -20,6 +20,9 @@ class EventDay {
     var files = [File]()
     let date: Date
 
+    private var sampleFilteredFiles: [File] {
+        return files.filter { $0.isPreviewSupported }
+    }
     private var sampleIndexes: [Int]?
 
     var samplesCount: Int {
@@ -35,8 +38,7 @@ class EventDay {
     }
 
     func prepareSampleFiles(progress: @escaping (Int, Int) -> Void, completion: @escaping () -> Void) {
-        let filesCount = files.count
-        let samplesCount = min(filesCount, 6)
+        let samplesCount = min(sampleFilteredFiles.count, 6)
 
         progress(0, samplesCount)
 
@@ -45,8 +47,8 @@ class EventDay {
             for i in 0..<samplesCount {
                 var index: Int
                 repeat {
-                    index = Int(arc4random_uniform(UInt32(filesCount)))
-                } while indexes.contains(index)
+                    index = Int(arc4random_uniform(UInt32(self.files.count)))
+                } while indexes.contains(index) || !self.files[index].isPreviewSupported
                 indexes.append(index)
 
                 self.files[index].loadPreview()

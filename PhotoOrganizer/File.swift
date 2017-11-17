@@ -10,11 +10,18 @@ import Cocoa
 
 class File {
 
+    private let previewExtensionsToSkip = ["CR2", "NEF"]
+
     var originalPath: String
     var preview: NSImage?
 
     var name: String {
         return (originalPath as NSString).lastPathComponent
+    }
+
+    var isPreviewSupported: Bool {
+        let ext = (originalPath as NSString).pathExtension.lowercased()
+        return !previewExtensionsToSkip.map{ $0.lowercased() }.contains(ext)
     }
 
     init(originalPath: String) {
