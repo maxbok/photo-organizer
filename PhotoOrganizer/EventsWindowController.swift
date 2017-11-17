@@ -73,8 +73,6 @@ class EventsWindowController: NSWindowController {
     func eventsNamed() {
         processing()
 
-        let fileUtils = FileUtils()
-
         let eventFormatter = DateFormatter()
         eventFormatter.dateFormat = "yyyyMMdd"
 
@@ -83,28 +81,50 @@ class EventsWindowController: NSWindowController {
 
         let settings = Settings(eventDateFormatter: eventFormatter, eventDayFormatter: eventDayFormatter)
 
+        copyEvents(settings: settings)
+    }
+
+    private func copyEvents(settings: Settings) {
+        let fileUtils = FileUtils()
         let destinationFolder = settings.outputFolderPath
+
+        var progresses = [Date: (Int, Int)]()
+
+        let completionGroup = DispatchGroup()
 
         for event in events {
             for day in event.days {
+                completionGroup.enter()
+
                 let dayFolder = settings.relativePathToFolder(for: event, on: day)
                 fileUtils.copyFiles(
                     at: day.files.map { $0.originalPath },
                     to: "\(destinationFolder)/\(dayFolder)",
                     progress: { count, total in
-                        DispatchQueue.main.async {
-                            self.processing(count, of: total)
-                        }
+                        progresses[day.date] = (count, total)
+                        self.updateProgress(with: progresses)
                     },
                     completion: {
-                        DispatchQueue.main.async {
-                            if let window = self.window {
-                                window.sheetParent?.endSheet(window)
-                            }
-                        }
+                        completionGroup.leave()
                     }
                 )
             }
+        }
+
+        completionGroup.notify(queue: DispatchQueue.main) {
+            if let window = self.window {
+                window.sheetParent?.endSheet(window)
+            }
+        }
+    }
+
+    private func updateProgress(with progresses: [Date: (Int, Int)]) {
+        let (count, total) = progresses.map{ $1 }.reduce((0, 0)) { (result, element) -> (Int, Int) in
+            return (result.0 + element.0, result.1 + element.1)
+        }
+
+        DispatchQueue.main.async {
+            self.processing(count, of: total)
         }
     }
 

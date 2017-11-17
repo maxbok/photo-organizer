@@ -68,28 +68,30 @@ class FileUtils {
     func copyFiles(at paths: [String], to folder: String, progress: @escaping (Int, Int) -> Void, completion: @escaping () -> Void) {
         let folder = (folder as NSString).expandingTildeInPath
 
-        do {
-            try manager.createDirectory(
-                atPath: folder,
-                withIntermediateDirectories: true,
-                attributes: nil)
-        } catch {
-            error.alert()
-        }
-
-        let count = paths.count
-        for (i, path) in paths.enumerated() {
-            progress(i, count)
-            let fileName = (path as NSString).lastPathComponent
-            let toPath = uniquePath(with: fileName, folder: folder)
+        DispatchQueue.global(qos: .background).async {
             do {
-                try manager.copyItem(atPath: path, toPath: toPath)
+                try self.manager.createDirectory(
+                    atPath: folder,
+                    withIntermediateDirectories: true,
+                    attributes: nil)
             } catch {
                 error.alert()
             }
-        }
 
-        completion()
+            let count = paths.count
+            for (i, path) in paths.enumerated() {
+                progress(i, count)
+                let fileName = (path as NSString).lastPathComponent
+                let toPath = self.uniquePath(with: fileName, folder: folder)
+                do {
+                    try self.manager.copyItem(atPath: path, toPath: toPath)
+                } catch {
+                    error.alert()
+                }
+            }
+
+            completion()
+        }
     }
 
     func uniquePath(with fileName: String, folder: String) -> String {
