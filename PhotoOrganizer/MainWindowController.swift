@@ -8,7 +8,11 @@
 
 import Cocoa
 
-class MainWindowController: NSWindowController {
+class MainWindowController: WindowController {
+
+    override var windowMask: NSWindow.StyleMask {
+        return [.titled, .miniaturizable]
+    }
 
     lazy var dragAndDropViewController: DragAndDropViewController = {
         let controller = DragAndDropViewController()
@@ -16,14 +20,33 @@ class MainWindowController: NSWindowController {
         return controller
     }()
 
-    lazy var eventsWindowController: EventsWindowController = {
-        return EventsWindowController()
+    lazy var eventsWindowControllers = [EventsWindowController]()
+
+    lazy var processingViewController = ProcessingViewController()
+
+    lazy var processingWindowController: WindowController = {
+        let windowController = WindowController()
+        windowController.mainViewController = self.processingViewController
+        return windowController
     }()
 
-    override func windowDidLoad() {
-        super.windowDidLoad()
+    lazy var copyHandler = CopyHandler()
 
-        contentViewController = dragAndDropViewController
+    override init() {
+        super.init()
+
+        window?.center()
+
+        mainViewController = dragAndDropViewController
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func processing(_ count: Int, of total: Int) {
+        processingViewController.hint = "Processing \(count + 1) of \(total)"
+        processingViewController.progress = Double(count + 1) / Double(total)
     }
 
 }

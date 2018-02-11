@@ -59,7 +59,6 @@ class EventViewController: ViewController {
         button.bezelStyle = .rounded
         button.target = self
         button.action = #selector(submit)
-        button.isEnabled = false
         return button
     }()
 
@@ -129,10 +128,15 @@ class EventViewController: ViewController {
     func show(event: Event, index: Int, total: Int) {
         self.event = event
         submitButton.title = index + 1 < total ? "Next" : "Done"
+        refreshSubmitButton()
     }
 
     func file(at indexPath: IndexPath) -> File? {
         return event?.days[indexPath.section].sampleFile(at: indexPath.item)
+    }
+
+    func refreshSubmitButton() {
+        submitButton.isEnabled = textField.stringValue.count > 0
     }
     
 }

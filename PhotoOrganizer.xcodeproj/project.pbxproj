@@ -18,6 +18,9 @@
 		502B1E0D1FBD0BDD009F8706 /* FocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B1E0C1FBD0BDD009F8706 /* FocusView.swift */; };
 		502B1E0F1FBD0F46009F8706 /* KeyEventCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B1E0E1FBD0F46009F8706 /* KeyEventCollectionView.swift */; };
 		502B1E111FBD113B009F8706 /* EventViewController+QuickLook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B1E101FBD113B009F8706 /* EventViewController+QuickLook.swift */; };
+		502B1E131FC1C9D1009F8706 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502B1E121FC1C9D1009F8706 /* WindowController.swift */; };
+		50614B42202E4109004786AC /* NSEvent+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50614B41202E4109004786AC /* NSEvent+Utils.swift */; };
+		50614B482030D7D8004786AC /* CopyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50614B472030D7D8004786AC /* CopyHandler.swift */; };
 		508792411FA4EC7300CCED47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792401FA4EC7300CCED47 /* AppDelegate.swift */; };
 		508792431FA4EC7300CCED47 /* DragAndDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792421FA4EC7300CCED47 /* DragAndDropViewController.swift */; };
 		508792451FA4EC7300CCED47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508792441FA4EC7300CCED47 /* Assets.xcassets */; };
@@ -46,10 +49,11 @@
 		508792921FAD456200CCED47 /* FileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792911FAD456200CCED47 /* FileItem.swift */; };
 		508792941FAF913C00CCED47 /* EventViewController+NSCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792931FAF913C00CCED47 /* EventViewController+NSCollectionViewDelegate.swift */; };
 		508792961FAF919C00CCED47 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792951FAF919C00CCED47 /* CollectionViewHeader.swift */; };
-		5092FC0D1FB8C040004AF359 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092FC0C1FB8C040004AF359 /* MainWindow.swift */; };
 		5092FC101FB8C177004AF359 /* ProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092FC0F1FB8C177004AF359 /* ProcessingViewController.swift */; };
 		5092FC131FB8C675004AF359 /* EventsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092FC121FB8C675004AF359 /* EventsWindowController.swift */; };
 		5092FC161FB8CCDA004AF359 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092FC151FB8CCDA004AF359 /* ViewController.swift */; };
+		5099DAD41FCCB52600336AC4 /* EventsWindowControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5099DAD31FCCB52600336AC4 /* EventsWindowControllerDelegate.swift */; };
+		5099DADB1FCCBF4700336AC4 /* MainWindowController+EventsWindowControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5099DADA1FCCBF4700336AC4 /* MainWindowController+EventsWindowControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,9 @@
 		502B1E0C1FBD0BDD009F8706 /* FocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusView.swift; sourceTree = "<group>"; };
 		502B1E0E1FBD0F46009F8706 /* KeyEventCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEventCollectionView.swift; sourceTree = "<group>"; };
 		502B1E101FBD113B009F8706 /* EventViewController+QuickLook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventViewController+QuickLook.swift"; sourceTree = "<group>"; };
+		502B1E121FC1C9D1009F8706 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		50614B41202E4109004786AC /* NSEvent+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+Utils.swift"; sourceTree = "<group>"; };
+		50614B472030D7D8004786AC /* CopyHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyHandler.swift; sourceTree = "<group>"; };
 		5087923D1FA4EC7300CCED47 /* PhotoOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508792401FA4EC7300CCED47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		508792421FA4EC7300CCED47 /* DragAndDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDropViewController.swift; sourceTree = "<group>"; };
@@ -106,10 +113,11 @@
 		508792911FAD456200CCED47 /* FileItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileItem.swift; sourceTree = "<group>"; };
 		508792931FAF913C00CCED47 /* EventViewController+NSCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventViewController+NSCollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		508792951FAF919C00CCED47 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
-		5092FC0C1FB8C040004AF359 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		5092FC0F1FB8C177004AF359 /* ProcessingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewController.swift; sourceTree = "<group>"; };
 		5092FC121FB8C675004AF359 /* EventsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsWindowController.swift; sourceTree = "<group>"; };
 		5092FC151FB8CCDA004AF359 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5099DAD31FCCB52600336AC4 /* EventsWindowControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsWindowControllerDelegate.swift; sourceTree = "<group>"; };
+		5099DADA1FCCBF4700336AC4 /* MainWindowController+EventsWindowControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainWindowController+EventsWindowControllerDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +162,10 @@
 				508792401FA4EC7300CCED47 /* AppDelegate.swift */,
 				508792841FABCB9B00CCED47 /* MainWindowController.swift */,
 				508792881FABCD2500CCED47 /* MainWindowController+DragAndDropViewControllerDelegate.swift */,
-				5092FC0C1FB8C040004AF359 /* MainWindow.swift */,
+				5099DADA1FCCBF4700336AC4 /* MainWindowController+EventsWindowControllerDelegate.swift */,
+				5099DAD51FCCBBE200336AC4 /* Copy */,
 				5092FC111FB8C5C5004AF359 /* Events */,
+				5092FC0E1FB8C167004AF359 /* Processing */,
 				508792811FABCAD900CCED47 /* Drag & Drop */,
 				508792801FABC37300CCED47 /* Utils */,
 				5087926B1FA644D100CCED47 /* Models */,
@@ -202,6 +212,8 @@
 				508792761FA9D07D00CCED47 /* NSError.swift */,
 				502B1E041FBB9C64009F8706 /* Error+Utils.swift */,
 				502B1E0C1FBD0BDD009F8706 /* FocusView.swift */,
+				502B1E121FC1C9D1009F8706 /* WindowController.swift */,
+				50614B41202E4109004786AC /* NSEvent+Utils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -249,10 +261,18 @@
 			children = (
 				5092FC121FB8C675004AF359 /* EventsWindowController.swift */,
 				502B1E021FB90603009F8706 /* EventsWindowController+Delegate.swift */,
-				5092FC0E1FB8C167004AF359 /* Processing */,
+				5099DAD31FCCB52600336AC4 /* EventsWindowControllerDelegate.swift */,
 				5087928A1FAC4A7100CCED47 /* Event */,
 			);
 			name = Events;
+			sourceTree = "<group>";
+		};
+		5099DAD51FCCBBE200336AC4 /* Copy */ = {
+			isa = PBXGroup;
+			children = (
+				50614B472030D7D8004786AC /* CopyHandler.swift */,
+			);
+			name = Copy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,14 +396,17 @@
 				508792851FABCB9B00CCED47 /* MainWindowController.swift in Sources */,
 				502B1DFD1FB8DD97009F8706 /* NSImage+Utils.swift in Sources */,
 				508792711FA935DB00CCED47 /* DraggingViewDelegate.swift in Sources */,
+				50614B42202E4109004786AC /* NSEvent+Utils.swift in Sources */,
 				502B1DFB1FB8D560009F8706 /* NSViewController+Children.swift in Sources */,
 				502B1E031FB90603009F8706 /* EventsWindowController+Delegate.swift in Sources */,
+				5099DAD41FCCB52600336AC4 /* EventsWindowControllerDelegate.swift in Sources */,
 				508792901FAD426900CCED47 /* EventViewController+NSCollectionViewDataSource.swift in Sources */,
 				5087926F1FA64A7300CCED47 /* HintOverlay.swift in Sources */,
 				502B1E0F1FBD0F46009F8706 /* KeyEventCollectionView.swift in Sources */,
 				5092FC131FB8C675004AF359 /* EventsWindowController.swift in Sources */,
 				508792831FABCB8600CCED47 /* EventViewController.swift in Sources */,
 				5087925E1FA4ED7900CCED47 /* Settings.swift in Sources */,
+				5099DADB1FCCBF4700336AC4 /* MainWindowController+EventsWindowControllerDelegate.swift in Sources */,
 				5092FC101FB8C177004AF359 /* ProcessingViewController.swift in Sources */,
 				502B1E0B1FBD08D4009F8706 /* FilePreviewItem.swift in Sources */,
 				5092FC161FB8CCDA004AF359 /* ViewController.swift in Sources */,
@@ -391,9 +414,10 @@
 				508792431FA4EC7300CCED47 /* DragAndDropViewController.swift in Sources */,
 				508792791FA9D4B600CCED47 /* URL+Utils.swift in Sources */,
 				508792961FAF919C00CCED47 /* CollectionViewHeader.swift in Sources */,
-				5092FC0D1FB8C040004AF359 /* MainWindow.swift in Sources */,
 				508792661FA4F57000CCED47 /* EventDay.swift in Sources */,
+				502B1E131FC1C9D1009F8706 /* WindowController.swift in Sources */,
 				502B1E0D1FBD0BDD009F8706 /* FocusView.swift in Sources */,
+				50614B482030D7D8004786AC /* CopyHandler.swift in Sources */,
 				502B1DFF1FB90351009F8706 /* EventViewController+NSTextFieldDelegate.swift in Sources */,
 				508792411FA4EC7300CCED47 /* AppDelegate.swift in Sources */,
 				508792891FABCD2500CCED47 /* MainWindowController+DragAndDropViewControllerDelegate.swift in Sources */,

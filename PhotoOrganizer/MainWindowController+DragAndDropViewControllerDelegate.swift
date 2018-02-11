@@ -6,18 +6,22 @@
 //  Copyright © 2017 Codehawks. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 
 
 extension MainWindowController: DragAndDropViewControllerDelegate {
 
     func processing() {
-        guard let eventsWindow = eventsWindowController.window else {
+        processingViewController.hint = "Processing…"
+        processingViewController.progress = nil
+
+        guard   let processingWindow = processingWindowController.window,
+                processingWindow.sheetParent == nil
+        else {
             return
         }
 
-        window?.beginSheet(eventsWindow, completionHandler: nil)
-        eventsWindowController.processing()
+        window?.beginSheet(processingWindow, completionHandler: nil)
     }
 
     func found(events: [Event]) {
@@ -41,7 +45,15 @@ extension MainWindowController: DragAndDropViewControllerDelegate {
         }
 
         group.notify(queue: DispatchQueue.main) {
-            self.eventsWindowController.show(events: events)
+            self.dragAndDropViewController.state = .ready
+            if let processingWindow = self.processingWindowController.window {
+                self.window?.endSheet(processingWindow)
+            }
+            let controller = EventsWindowController()
+            controller.delegate = self
+            controller.showWindow(self)
+            controller.show(events: events)
+            self.eventsWindowControllers.append(controller)
         }
     }
 
@@ -54,7 +66,7 @@ extension MainWindowController: DragAndDropViewControllerDelegate {
             total += t
         }
 
-        eventsWindowController.processing(count, of: total)
+        processing(count, of: total)
     }
 
 }

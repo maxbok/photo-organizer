@@ -11,14 +11,12 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    let mainWindowController = MainWindowController()
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        mainWindowController.windowFrameAutosaveName = NSWindow.FrameAutosaveName(rawValue: "main")
+        mainWindowController.window?.makeKeyAndOrderFront(nil)
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
 
 }
 

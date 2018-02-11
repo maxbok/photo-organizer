@@ -12,7 +12,7 @@ import Cocoa
 extension EventViewController: NSTextFieldDelegate {
 
     override func controlTextDidChange(_ obj: Notification) {
-        submitButton.isEnabled = textField.stringValue.count > 0
+        refreshSubmitButton()
     }
 
 }

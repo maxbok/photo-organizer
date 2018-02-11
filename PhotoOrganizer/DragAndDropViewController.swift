@@ -10,24 +10,17 @@ import Cocoa
 
 class DragAndDropViewController: ViewController {
 
-    override var preferredContentSize: NSSize {
-        set { }
-        get {
-            return NSSize(width: 512, height: 512)
+    weak var delegate: DragAndDropViewControllerDelegate?
+
+    enum State {
+        case ready, processing
+    }
+
+    var state: State = .ready {
+        didSet {
+            draggingView.isEnabled = state == .ready
         }
     }
-
-    override var preferredMinimumSize: NSSize {
-        set { }
-        get { return preferredContentSize }
-    }
-
-    override var preferredMaximumSize: NSSize {
-        set { }
-        get { return preferredContentSize }
-    }
-
-    weak var delegate: DragAndDropViewControllerDelegate?
 
     lazy var draggingView: DraggingView = {
         let view = DraggingView()
@@ -38,6 +31,8 @@ class DragAndDropViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        preferredContentSize = NSSize(width: 512, height: 512)
 
         view.addSubview(draggingView)
 

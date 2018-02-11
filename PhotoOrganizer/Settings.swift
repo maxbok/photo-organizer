@@ -18,6 +18,16 @@ struct Settings {
     let eventMultipleDateFormatter: DateFormatter
     let eventDayFormatter: DateFormatter
 
+    static var shared: Settings = {
+        let eventFormatter = DateFormatter()
+        eventFormatter.dateFormat = "yyyyMMdd"
+
+        let eventDayFormatter = DateFormatter()
+        eventDayFormatter.dateFormat = "yy-MM-dd"
+
+        return Settings(eventDateFormatter: eventFormatter, eventDayFormatter: eventDayFormatter)
+    }()
+
     init(eventDateFormatter: DateFormatter, eventDayFormatter: DateFormatter, outputFolderPath: String = DefaultOutputFolderPath, keepOriginals: Bool = true) {
         self.eventDateFormatter = eventDateFormatter
         let formatter = DateFormatter()

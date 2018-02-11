@@ -12,6 +12,12 @@ class DraggingView: NSView {
 
     weak var delegate: DraggingViewDelegate?
 
+    var isEnabled = true {
+        didSet {
+            setNeedsDisplay(bounds)
+        }
+    }
+
     private let supportedType = kUTTypeFileURL as String
 
     private lazy var hintOverlay: HintOverlay = {
@@ -48,25 +54,33 @@ class DraggingView: NSView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
-        NSColor.paleBlue.setFill()
+        if isEnabled {
+            NSColor.paleBlue.setFill()
+        } else {
+            NSColor.gray.setFill()
+        }
         dirtyRect.fill()
     }
 
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+        guard isEnabled else { return .generic }
         hintOverlay.state = supportedItems(sender).count > 0 ? .entered : .none
-        return NSDragOperation.generic
+        return .generic
     }
 
     override func draggingUpdated(_ sender: NSDraggingInfo) -> NSDragOperation {
+        guard isEnabled else { return .generic }
         hintOverlay.state = supportedItems(sender).count > 0 ? .entered : .none
-        return NSDragOperation.generic
+        return .generic
     }
 
     override func draggingExited(_ sender: NSDraggingInfo?) {
+        guard isEnabled else { return }
         hintOverlay.state = .none
     }
 
     override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool {
+        guard isEnabled else { return false }
         return supportedItems(sender).count > 0
     }
 
@@ -76,7 +90,9 @@ class DraggingView: NSView {
         }
 
         let items = supportedItems(sender)
-        guard items.count > 0 else {
+        guard   isEnabled,
+                items.count > 0
+        else {
             return false
         }
 

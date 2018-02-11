@@ -12,6 +12,7 @@ import Foundation
 extension DragAndDropViewController: DraggingViewDelegate {
 
     func dragged(urls: [URL]) {
+        state = .processing
         delegate?.processing()
 
         DispatchQueue.global(qos: .background).async { [weak self] in

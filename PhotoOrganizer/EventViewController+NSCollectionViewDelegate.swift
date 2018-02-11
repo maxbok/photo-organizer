@@ -17,13 +17,7 @@ extension EventViewController: NSCollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        guard   QLPreviewPanel.sharedPreviewPanelExists(),
-                QLPreviewPanel.shared().isVisible
-        else {
-            return
-        }
-
-        QLPreviewPanel.shared().reloadData()
+        reloadPreviewPanel()
     }
 
 }

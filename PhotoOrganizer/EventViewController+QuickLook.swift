@@ -12,28 +12,30 @@ import Quartz
 
 extension EventViewController: KeyEventCollectionViewDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate {
 
-    func keyEventCollectionViewKeyDown(with event: NSEvent) {
-        // spacebar
-        guard event.keyCode == 49 else {
-            super.keyDown(with: event)
+    func keyEventCollectionViewDidPressSpacebar(_ collectionView: NSCollectionView) {
+        showPreviewPanel()
+    }
+
+    func showPreviewPanel() {
+        guard   collectionView.selectionIndexPaths.count > 0,
+                let panel = QLPreviewPanel.shared()
+        else {
             return
         }
 
-        showQuickLookPreview()
+        panel.makeKeyAndOrderFront(self)
+        reloadPreviewPanel()
     }
 
-
-    func showQuickLookPreview() {
-        guard collectionView.selectionIndexPaths.count > 0 else { return }
-
-        guard let panel = QLPreviewPanel.shared() else { return }
-
-        if QLPreviewPanel.sharedPreviewPanelExists() && panel.isVisible {
-            panel.orderOut(self)
-        } else {
-            panel.makeKeyAndOrderFront(self)
-            panel.reloadData()
+    func reloadPreviewPanel() {
+        guard   QLPreviewPanel.sharedPreviewPanelExists(),
+                let panel = QLPreviewPanel.shared(),
+                panel.isVisible
+        else {
+            return
         }
+
+        panel.reloadData()
     }
 
     override func acceptsPreviewPanelControl(_ panel: QLPreviewPanel!) -> Bool {
@@ -76,7 +78,7 @@ extension EventViewController: KeyEventCollectionViewDelegate, QLPreviewPanelDat
 
     func previewPanel(_ panel: QLPreviewPanel!, handle event: NSEvent!) -> Bool {
         // arrows
-        guard 123...126 ~= event.keyCode else { return false }
+        guard event.isArrowDown else { return false }
 
         collectionView.keyDown(with: event)
         return true
