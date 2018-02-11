@@ -90,6 +90,7 @@ class FileUtils {
                 }
             }
 
+            progress(count, count)
             completion()
         }
     }

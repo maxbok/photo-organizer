@@ -21,8 +21,9 @@ class MainWindowController: WindowController {
     }()
 
     lazy var eventsWindowControllers = [EventsWindowController]()
+    lazy var copyProgressWindowControllers = [WindowController]()
 
-    lazy var processingViewController = ProcessingViewController()
+    lazy var processingViewController = ProgressViewController()
 
     lazy var processingWindowController: WindowController = {
         let windowController = WindowController()

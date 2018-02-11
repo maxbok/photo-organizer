@@ -10,8 +10,10 @@ import Cocoa
 
 class CopyHandler {
 
-    func copy(events: [Event], with settings: Settings, progress: @escaping (Int, Int) -> Void, completion: @escaping () -> Void) {
-        progress(0, 0)
+    private static let progressQueue = DispatchQueue(label: "eu.codehawks.CopyProgress")
+
+    func copy(events: [Event], with settings: Settings, progress: @escaping (Int?, Int?) -> Void, completion: @escaping () -> Void) {
+        progress(nil, nil)
 
         let fileUtils = FileUtils()
         let destinationFolder = settings.outputFolderPath
@@ -29,8 +31,10 @@ class CopyHandler {
                     at: day.files.map { $0.originalPath },
                     to: "\(destinationFolder)/\(dayFolder)",
                     progress: { count, total in
-                        progresses[day.date] = (count, total)
-                        self.updateProgress(with: progresses, progressBlock: progress)
+                        CopyHandler.progressQueue.async {
+                            progresses[day.date] = (count, total)
+                            self.updateProgress(with: progresses, progressBlock: progress)
+                        }
                     },
                     completion: {
                         group.leave()

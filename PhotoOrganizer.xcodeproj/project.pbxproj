@@ -49,7 +49,7 @@
 		508792921FAD456200CCED47 /* FileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792911FAD456200CCED47 /* FileItem.swift */; };
 		508792941FAF913C00CCED47 /* EventViewController+NSCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792931FAF913C00CCED47 /* EventViewController+NSCollectionViewDelegate.swift */; };
 		508792961FAF919C00CCED47 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508792951FAF919C00CCED47 /* CollectionViewHeader.swift */; };
-		5092FC101FB8C177004AF359 /* ProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092FC0F1FB8C177004AF359 /* ProcessingViewController.swift */; };
+		5092FC101FB8C177004AF359 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092FC0F1FB8C177004AF359 /* ProgressViewController.swift */; };
 		5092FC131FB8C675004AF359 /* EventsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092FC121FB8C675004AF359 /* EventsWindowController.swift */; };
 		5092FC161FB8CCDA004AF359 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5092FC151FB8CCDA004AF359 /* ViewController.swift */; };
 		5099DAD41FCCB52600336AC4 /* EventsWindowControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5099DAD31FCCB52600336AC4 /* EventsWindowControllerDelegate.swift */; };
@@ -113,7 +113,7 @@
 		508792911FAD456200CCED47 /* FileItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileItem.swift; sourceTree = "<group>"; };
 		508792931FAF913C00CCED47 /* EventViewController+NSCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventViewController+NSCollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		508792951FAF919C00CCED47 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
-		5092FC0F1FB8C177004AF359 /* ProcessingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewController.swift; sourceTree = "<group>"; };
+		5092FC0F1FB8C177004AF359 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		5092FC121FB8C675004AF359 /* EventsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsWindowController.swift; sourceTree = "<group>"; };
 		5092FC151FB8CCDA004AF359 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5099DAD31FCCB52600336AC4 /* EventsWindowControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsWindowControllerDelegate.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 				5099DADA1FCCBF4700336AC4 /* MainWindowController+EventsWindowControllerDelegate.swift */,
 				5099DAD51FCCBBE200336AC4 /* Copy */,
 				5092FC111FB8C5C5004AF359 /* Events */,
-				5092FC0E1FB8C167004AF359 /* Processing */,
+				5092FC0E1FB8C167004AF359 /* Progress */,
 				508792811FABCAD900CCED47 /* Drag & Drop */,
 				508792801FABC37300CCED47 /* Utils */,
 				5087926B1FA644D100CCED47 /* Models */,
@@ -248,12 +248,12 @@
 			name = Event;
 			sourceTree = "<group>";
 		};
-		5092FC0E1FB8C167004AF359 /* Processing */ = {
+		5092FC0E1FB8C167004AF359 /* Progress */ = {
 			isa = PBXGroup;
 			children = (
-				5092FC0F1FB8C177004AF359 /* ProcessingViewController.swift */,
+				5092FC0F1FB8C177004AF359 /* ProgressViewController.swift */,
 			);
-			name = Processing;
+			name = Progress;
 			sourceTree = "<group>";
 		};
 		5092FC111FB8C5C5004AF359 /* Events */ = {
@@ -407,7 +407,7 @@
 				508792831FABCB8600CCED47 /* EventViewController.swift in Sources */,
 				5087925E1FA4ED7900CCED47 /* Settings.swift in Sources */,
 				5099DADB1FCCBF4700336AC4 /* MainWindowController+EventsWindowControllerDelegate.swift in Sources */,
-				5092FC101FB8C177004AF359 /* ProcessingViewController.swift in Sources */,
+				5092FC101FB8C177004AF359 /* ProgressViewController.swift in Sources */,
 				502B1E0B1FBD08D4009F8706 /* FilePreviewItem.swift in Sources */,
 				5092FC161FB8CCDA004AF359 /* ViewController.swift in Sources */,
 				5087927B1FA9D5D300CCED47 /* Event+Generator.swift in Sources */,

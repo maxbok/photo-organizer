@@ -1,5 +1,5 @@
 //
-//  ProcessingViewController.swift
+//  ProgressViewController.swift
 //  PhotoOrganizer
 //
 //  Created by Maxime Bokobza on 12/11/2017.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ProcessingViewController: ViewController {
+class ProgressViewController: ViewController {
 
     var hint: String? {
         didSet {
