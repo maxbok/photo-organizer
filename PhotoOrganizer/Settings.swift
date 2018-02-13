@@ -43,7 +43,8 @@ struct Settings {
         if event.hasSingleDay {
             dateString = eventDateFormatter.string(from: eventDay.date)
         } else {
-            dateString = eventMultipleDateFormatter.string(from: eventDay.date)
+            let date = event.days.first?.date ?? eventDay.date
+            dateString = eventMultipleDateFormatter.string(from: date)
         }
 
         let eventPath: String
@@ -53,12 +54,12 @@ struct Settings {
             eventPath = dateString
         }
 
-        if event.hasSingleDay {
-            return "\(eventPath)"
+        guard event.hasSingleDay else {
+            let dayPath = eventDayFormatter.string(from: eventDay.date)
+            return "\(eventPath)/\(dayPath)"
         }
 
-        let dayPath = eventDayFormatter.string(from: eventDay.date)
-        return "\(eventPath)/\(dayPath)"
+        return "\(eventPath)"
     }
 
 }
